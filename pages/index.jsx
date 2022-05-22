@@ -10,7 +10,7 @@ import * as ta from "time-ago";
 import postApi from "../api-client/postApi";
 import InputField from "../components/form-control/inputField";
 import ListPost from "../components/ListPost";
-import Modal from "../components/modal";
+import Modal from "../components/modal/Modal";
 import PostByView from "../components/PostByView";
 import useDebounce from "../hooks/useDebound";
 import { DataContext } from "../store/GlobalState";

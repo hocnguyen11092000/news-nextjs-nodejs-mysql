@@ -8,18 +8,16 @@ import { DataContext } from "../../store/GlobalState";
 
 const cx = classNames.bind(styles);
 
-function index({ children, show }) {
+function Modal({ children, show }) {
   const { dispatch } = useContext(DataContext);
 
   useEffect(() => {
     window.addEventListener("mousedown", (e) => {
-      console.log(123);
       if (e.target.classList.contains("modal_modal__CPpAi")) {
-        console.log(456);
         dispatch({ type: "CLOSE_MODAL" });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   const handleToggleModal = () => {
     dispatch({ type: "TOGGLE_MODAL_SEARCH" });
@@ -54,4 +52,4 @@ function index({ children, show }) {
   );
 }
 
-export default index;
+export default Modal;
