@@ -1,0 +1,138 @@
+.wrapper-news {
+  display: flex;
+  gap: 1rem;
+
+  &__left-news {
+    flex-basis: 65%;
+
+    &-list-post {
+      &-block {
+        display: flex;
+        margin: 1rem 0;
+
+        &-imgBox {
+          max-width: 10rem;
+          width: 10rem;
+          height: 120px;
+          min-width: 10rem;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-right: 0.875rem;
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+            cursor: pointer;
+            border-radius: inherit;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+
+        &-content {
+          &-description {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #333;
+            margin: 0.875rem 0;
+          }
+        }
+
+        &-info {
+          font-size: 0.75rem;
+          color: gray;
+        }
+      }
+    }
+
+    &-lasted-post {
+      margin-bottom: 2rem;
+
+      &-left {
+        &-imgBox {
+          width: 700px;
+          height: 465px;
+          overflow: hidden;
+          border-radius: 5px;
+
+          & img {
+            width: 100%;
+            object-fit: contain;
+            transition: 0.5s ease;
+            border-radius: inherit;
+            cursor: pointer;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+
+        &-description {
+          margin: 0.6rem 0;
+          font-size: 1.4rem;
+        }
+
+        &-info {
+          font-size: 0.75rem;
+          color: gray;
+        }
+      }
+    }
+  }
+
+  &__right-news {
+    flex: 1;
+    margin-left: -2rem;
+
+    &-block {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+
+      &-imgBox {
+        min-width: 5rem;
+        max-width: 5rem;
+        min-height: 5rem;
+        height: 5rem;
+        overflow: hidden;
+        border-radius: 5px;
+
+        & img {
+          max-width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: 0.5s ease;
+          border-radius: inherit;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      &-description {
+        font-size: 0.875rem;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.search-btn {
+  padding: 10px 12px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-group {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
