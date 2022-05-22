@@ -9,7 +9,7 @@ import axios from "axios";
 // }
 
 const axiosClient = axios.create({
-  baseURL: "https://orchid.tk/api",
+  baseURL: "http://localhost:8000/api",
 });
 
 // // Add a request interceptor
