@@ -60,7 +60,7 @@ function LoginForm({ styles, onSubmit }) {
         >
           <button
             type="submit"
-            className={styles["login-btn"]}
+            className={styles["login-btn"] || ""}
             disabled={isSubmitting}
           >
             {isSubmitting ? <Loading w="20" h="20"></Loading> : " Login"}
