@@ -35,7 +35,7 @@ function Modal({ children, show }) {
             ? {
                 opacity: "1",
                 visibility: "visible",
-                transform: "translate(-50%, -50%)",
+                transform: "translate(-50%, -50%) scale(1)",
               }
             : {}
         }

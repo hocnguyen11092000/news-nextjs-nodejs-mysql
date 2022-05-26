@@ -12,7 +12,7 @@ index.propTypes = {
 };
 
 function index(props) {
-  const { form, name, label, disable, placeholder, type, id } = props;
+  const { form, name, label, disable, placeholder, type, id, borderbt } = props;
 
   const { control } = form;
   const {
@@ -32,6 +32,15 @@ function index(props) {
             {label}
           </label>
           <input
+            style={
+              borderbt
+                ? {
+                    border: "none",
+                    borderBottom: "1px solid #ccc",
+                    borderRadius: "0px",
+                  }
+                : {}
+            }
             onChange={onChange}
             onBlur={onBlur}
             id={id}
@@ -45,7 +54,7 @@ function index(props) {
           {errors && (
             <div
               style={{
-                margin: "-16px 0 8px 0",
+                margin: "0.5rem 0 8px 0",
                 fontSize: "0.8rem",
                 color: "red",
               }}

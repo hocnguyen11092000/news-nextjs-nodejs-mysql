@@ -15,15 +15,14 @@ import PostByView from "../components/PostByView";
 import useDebounce from "../hooks/useDebound";
 import { DataContext } from "../store/GlobalState";
 import styles from "../styles/home.module.scss";
-import queryString from "query-string";
 import { removeAccents } from "../utils/removeDiacritic";
+import readingTime from "reading-time";
 
 const cx = classNames.bind(styles);
 
 export default function Home({ posts, count, imageProps }) {
   const { state, dispatch } = useContext(DataContext);
   const [searchData, setSearchData] = useState([]);
-  const [countSearchData, setCountSearchData] = useState();
   const [loading, setLoading] = useState(false);
   const [hasPost, setHasPost] = useState(false);
 
@@ -42,7 +41,8 @@ export default function Home({ posts, count, imageProps }) {
   });
 
   const { watch } = form;
-  const deboundValue = useDebounce(watch().keyword, 500);
+  const deboundValue = useDebounce(watch().keyword, 300);
+
   const searchObj = {
     keyword: removeAccents(deboundValue),
   };
@@ -58,7 +58,7 @@ export default function Home({ posts, count, imageProps }) {
       try {
         const res = await postApi.getAll(searchObj);
         setLoading(false);
-        setCountSearchData(res.searchCount);
+
         setSearchData(res.posts);
         setHasPost(res.hasPost);
       } catch (error) {
@@ -66,14 +66,14 @@ export default function Home({ posts, count, imageProps }) {
         console.log(error);
       }
     })();
-  }, [deboundValue]);
+  }, [deboundValue, searchData.length]);
 
   const handleFormSubmit = async (values) => {
     console.log(values);
   };
 
   return (
-    <div className="container">
+    <div className="home-container">
       <Head>
         <title>Home Page</title>
       </Head>
@@ -87,15 +87,16 @@ export default function Home({ posts, count, imageProps }) {
                 )}
               >
                 <Link href={`/posts/${lasted.id}`}>
-                  <Image
-                    {...imageProps}
-                    src={lasted.image}
-                    alt={lasted.title}
-                    width={700}
-                    height={465}
-                    placeholder="blur"
-                    // loader={myLoader}
-                  ></Image>
+                  <div>
+                    <Image
+                      {...imageProps}
+                      src={lasted.image}
+                      alt={lasted.title}
+                      width={700}
+                      height={465}
+                      placeholder="blur"
+                    ></Image>
+                  </div>
                 </Link>
               </div>
               <div
@@ -111,7 +112,8 @@ export default function Home({ posts, count, imageProps }) {
                 <span style={{ marginRight: "1rem" }}>
                   {ta.ago(lasted.createdAt)}
                 </span>
-                <span>{lasted.user.name}</span>
+                <span style={{ marginRight: "1rem" }}>{lasted.user.name}</span>
+                <span>{lasted.timeReading.text}</span>
               </div>
             </div>
           </div>
@@ -123,6 +125,7 @@ export default function Home({ posts, count, imageProps }) {
               ta={ta}
               count={count}
               left
+              readingTime={readingTime}
             ></ListPost>
           </div>
         </div>
@@ -132,6 +135,7 @@ export default function Home({ posts, count, imageProps }) {
             item={postList}
             cx={cx}
             ta={ta}
+            readingTime={readingTime}
           ></PostByView>
         </div>
       </div>
@@ -144,14 +148,16 @@ export default function Home({ posts, count, imageProps }) {
               id="keyword"
               placeholder="nhập từ khóa ..."
             ></InputField>
-            <button type="submit" className={cx("search-btn")}>
-              Tìm kiếm
+            <button
+              style={{ minWidth: "80px" }}
+              type="submit"
+              className={cx("search-btn")}
+            >
+              {loading ? "..." : " Tìm kiếm"}
             </button>
           </div>
         </form>
-        {loading && (
-          <span style={{ margin: "2rem 1.5rem" }}>Đang tìm kiếm...</span>
-        )}
+
         {searchData.length === 0 ? (
           <div style={{ textAlign: "center", margin: "5rem 0" }}>
             {hasPost
@@ -165,9 +171,11 @@ export default function Home({ posts, count, imageProps }) {
               item={searchData}
               cx={cx}
               ta={ta}
-              count={countSearchData}
+              count={count}
               left
               searchWords={deboundValue}
+              search
+              readingTime={readingTime}
             ></ListPost>
           </div>
         )}

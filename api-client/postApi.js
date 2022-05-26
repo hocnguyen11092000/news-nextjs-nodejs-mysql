@@ -16,6 +16,11 @@ const postApi = {
     return axiosClient.get(url);
   },
 
+  getCommentOfPost(id) {
+    const url = `/comments/${id}`;
+    return axiosClient.get(url);
+  },
+
   add(data) {
     const url = "/posts";
     return axiosClient.post(url, data);

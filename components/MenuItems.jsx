@@ -30,56 +30,54 @@ function MenuItems({ item, depthLevel }) {
   };
 
   return (
-    <div>
-      <li
-        className="menu-items"
-        ref={ref}
-        onMouseEnter={onMoseEnter}
-        onMouseLeave={onMoseLeave}
-      >
-        {item.sub ? (
-          <>
-            <button
-              type="button"
-              aria-haspopup="menu"
-              aria-expanded={dropdown ? "true" : "false"}
-              onClick={() => setDropdown((pre) => !pre)}
-            >
-              <Link
-                href={{
-                  pathname: `/category/${item.id}`,
-                  // query: { name: item.name },
-                }}
-              >
-                <span> {item.name}</span>
-              </Link>
-
-              {depthLevel > 0 ? (
-                <span style={{ position: "relative", left: "10px" }}>
-                  &raquo;
-                </span>
-              ) : (
-                <span className="arrow"></span>
-              )}
-            </button>
-            <Dropdown
-              depthLevel={depthLevel}
-              submenu={item.sub}
-              drowdown={dropdown}
-            ></Dropdown>
-          </>
-        ) : (
-          <Link
-            href={{
-              pathname: `/category/${item.id}`,
-              // query: { name: item.name },
-            }}
+    <li
+      className="menu-items"
+      ref={ref}
+      onMouseEnter={onMoseEnter}
+      onMouseLeave={onMoseLeave}
+    >
+      {item.sub ? (
+        <>
+          <button
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={dropdown ? "true" : "false"}
+            onClick={() => setDropdown((pre) => !pre)}
           >
-            {item.name}
-          </Link>
-        )}
-      </li>
-    </div>
+            <Link
+              href={{
+                pathname: `/category/${item.id}`,
+                // query: { name: item.name },
+              }}
+            >
+              <span> {item.name}</span>
+            </Link>
+
+            {depthLevel > 0 ? (
+              <span style={{ position: "relative", left: "10px" }}>
+                &raquo;
+              </span>
+            ) : (
+              <span className="arrow"></span>
+            )}
+          </button>
+          <Dropdown
+            depthLevel={depthLevel}
+            submenu={item.sub}
+            drowdown={dropdown}
+          ></Dropdown>
+        </>
+      ) : (
+        <Link
+          href={{
+            pathname: `/category/${item.id}`,
+            // query: { name: item.name },
+          }}
+        >
+          {item.name}
+        </Link>
+      )}
+    </li>
   );
 }
 

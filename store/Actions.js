@@ -1,6 +1,7 @@
 export const ACTIONS = {
   NOTIFY: "NOTIFY",
   AUTH: "AUTH",
+  AUTH_TOKEN: "AUTH_TOKEN",
   ADD_CART: "ADD_CART",
   ADD_MODAL: "ADD_MODAL",
   ADD_ORDERS: "ADD_ORDERS",
@@ -8,6 +9,7 @@ export const ACTIONS = {
   ADD_CATEGORIES: "ADD_CATEGORIES",
   TOGGLE_MODAL_SEARCH: "TOGGLE_MODAL_SEARCH",
   CLOSE_MODAL: "CLOSE_MODAL",
+  LOGOUT: "LOGOUT",
 };
 
 // export const addToCart = (product, cart) => {

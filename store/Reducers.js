@@ -12,6 +12,12 @@ const reducers = (state, action) => {
         ...state,
         auth: action.payload,
       };
+    case ACTIONS.LOGOUT:
+      return {
+        ...state,
+        auth: {},
+      };
+
     case ACTIONS.ADD_CART:
       return {
         ...state,

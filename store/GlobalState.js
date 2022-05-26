@@ -22,19 +22,26 @@ export const DataProvider = ({ children }) => {
   const { cart, auth } = state;
 
   useEffect(() => {
-    // const firstLogin = localStorage.getItem("firstLogin");
-    // if(firstLogin){
-    //     getData('auth/accessToken').then(res => {
-    //         if(res.err) return localStorage.removeItem("firstLogin")
-    //         dispatch({
-    //             type: "AUTH",
-    //             payload: {
-    //                 token: res.access_token,
-    //                 user: res.user
-    //             }
-    //         })
-    //     })
-    // }
+    const user = localStorage.getItem("next_user");
+    if (user) {
+      dispatch({ type: "AUTH", payload: JSON.parse(user) });
+    }
+  }, []);
+
+  useEffect(() => {
+    const firstLogin = localStorage.getItem("firstLogin");
+    if (firstLogin) {
+      getData("auth/accessToken").then((res) => {
+        if (res.err) return localStorage.removeItem("firstLogin");
+        dispatch({
+          type: "AUTH",
+          payload: {
+            token: res.access_token,
+            user: res.user,
+          },
+        });
+      });
+    }
 
     (async () => {
       const res = await categoryApi.getAll();

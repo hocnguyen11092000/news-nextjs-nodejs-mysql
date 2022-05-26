@@ -1,3 +1,26 @@
 .detail-post {
   padding: 0 50px;
+
+  &__comments {
+    margin: 2rem 0;
+
+    &-comment {
+      &__content {
+        background-color: rgb(240, 240, 240);
+        padding: 10px 12px;
+        border-radius: 1rem;
+
+        &-time {
+          margin: 0.5rem 0 0 3rem;
+          font-size: 0.875rem;
+
+          &-reply {
+            margin-right: 0.5rem;
+            color: #e87a5a;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }

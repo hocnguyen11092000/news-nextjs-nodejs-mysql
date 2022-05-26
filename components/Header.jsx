@@ -11,16 +11,21 @@ const cx = classNames.bind(styles);
 
 function Header() {
   const { state, dispatch } = useContext(DataContext);
+
   const handleToggleModal = () => {
     dispatch({ type: "TOGGLE_MODAL_SEARCH" });
   };
+
+  const user = state.auth;
 
   return (
     <>
       <div className={cx("header")}>
         <div className={cx("header-wrapper")}>
           <div className={cx("header-logo")}>
-            <Link href="/">next news</Link>
+            <Link href="/">
+              <span style={{ cursor: "pointer" }}>next news</span>
+            </Link>
           </div>
           <ul className="menus">
             {state.categories.map((menu, index) => {
@@ -35,7 +40,17 @@ function Header() {
               <FontAwesomeIcon icon={faSearch} onClick={handleToggleModal} />
             </span>
             <span className="header-info-user">
-              <FontAwesomeIcon icon={faUser} />
+              {user.name !== undefined ? (
+                <Link href="/account">
+                  <span>{user.name}</span>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <span>
+                    <FontAwesomeIcon icon={faUser} />
+                  </span>
+                </Link>
+              )}
             </span>
           </div>
         </div>
