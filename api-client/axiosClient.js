@@ -1,12 +1,4 @@
 import axios from "axios";
-// import StorageKeys from "../constants/storage-keys";
-// import { getToken } from "../utils/jwt";
-
-// let tokenLocal = localStorage.getItem(StorageKeys.TOKEN);
-
-// if (tokenLocal) {
-//   tokenLocal = JSON.stringify(tokenLocal);
-// }
 
 const axiosClient = axios.create({
   baseURL: "http://localhost:8000/api",
