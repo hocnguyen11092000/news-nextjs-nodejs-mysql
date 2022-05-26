@@ -6,7 +6,7 @@ import { DataContext } from "../../store/GlobalState";
 import router from "next/router";
 import Head from "next/head";
 
-function index() {
+function Login() {
   const { state, dispatch } = useContext(DataContext);
 
   const handleLogin = async (values) => {
@@ -35,4 +35,4 @@ function index() {
   );
 }
 
-export default index;
+export default Login;

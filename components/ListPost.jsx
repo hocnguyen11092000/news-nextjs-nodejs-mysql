@@ -26,10 +26,9 @@ function ListPost({
     setPosts((posts) => [...posts, ...res.posts]);
   }, [posts.length]);
 
-  !search &&
-    useEffect(() => {
-      setHasMore(count > posts.length + 1 ? true : false);
-    }, [posts.length]);
+  useEffect(() => {
+    setHasMore(count > posts.length + 1 ? true : false);
+  }, [posts.length]);
 
   return (
     <>

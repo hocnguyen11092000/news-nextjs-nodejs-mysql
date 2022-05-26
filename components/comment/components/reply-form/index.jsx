@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import InputField from "../../../form-control/inputField";
 import styles from "./reply-form.module.scss";
 
-function index({ onSubmit, cancel }) {
+function ReplyForm({ onSubmit, cancel }) {
   const form = useForm({
     defaultValues: {
       content: "",
@@ -43,4 +43,4 @@ function index({ onSubmit, cancel }) {
   );
 }
 
-export default index;
+export default ReplyForm;

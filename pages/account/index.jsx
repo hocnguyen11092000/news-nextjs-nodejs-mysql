@@ -3,7 +3,7 @@ import { DataContext } from "../../store/GlobalState";
 import styles from "./account.module.scss";
 import router from "next/router";
 
-function index() {
+function Account() {
   const { state, dispatch } = useContext(DataContext);
   const user = state.auth;
   const handleLogOut = () => {
@@ -22,4 +22,4 @@ function index() {
   );
 }
 
-export default index;
+export default Account;

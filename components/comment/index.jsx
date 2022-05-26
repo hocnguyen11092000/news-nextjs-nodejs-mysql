@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ReplyForm from "./components/reply-form";
 
-function index({ cx, item, ta }) {
+function Comment({ cx, item, ta }) {
   const [showReplyForm, setShowReplyForm] = useState(false);
 
   const handleSubmit = async (values) => {
@@ -58,4 +58,4 @@ function index({ cx, item, ta }) {
   );
 }
 
-export default index;
+export default Comment;
