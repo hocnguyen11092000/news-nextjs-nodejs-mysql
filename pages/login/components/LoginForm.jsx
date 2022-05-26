@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import InputField from "../../../components/form-control/inputField";
 import Loading from "../../../components/Loading";
 
-function LoginForm({ styles, onSubmit }) {
+function LoginForm({ onSubmit }) {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -60,7 +60,13 @@ function LoginForm({ styles, onSubmit }) {
         >
           <button
             type="submit"
-            className={styles["login-btn"] || ""}
+            style={{
+              padding: " 10px 12px",
+              border: "none",
+              outline: "none",
+              borderRadius: "5px",
+              overflow: "hidden",
+            }}
             disabled={isSubmitting}
           >
             {isSubmitting ? <Loading w="20" h="20"></Loading> : " Login"}
