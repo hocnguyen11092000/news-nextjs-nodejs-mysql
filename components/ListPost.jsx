@@ -32,7 +32,9 @@ function ListPost({
 
   return (
     <>
-      {posts.length === 0 && <h3>Không có bài viết...</h3>}
+      {posts.length === 0 && (
+        <h3 style={{ margin: "1.5rem 0" }}>Không có bài viết...</h3>
+      )}
       {posts &&
         !search &&
         posts.map((post) => {
@@ -63,14 +65,14 @@ function ListPost({
                 )}
               >
                 <Link href={`../posts/${post.id}`}>
-                  <>
+                  <span style={{ cursor: "pointer" }}>
                     <Highlighter
                       highlightClassName="YourHighlightClass"
                       searchWords={searchWords?.split(" ")}
                       autoEscape={true}
                       textToHighlight={post.title}
                     />
-                  </>
+                  </span>
                 </Link>
                 <div
                   className={cx(
@@ -123,14 +125,14 @@ function ListPost({
                 )}
               >
                 <Link href={`../posts/${post.id}`}>
-                  <>
+                  <span style={{ cursor: "pointer" }}>
                     <Highlighter
                       highlightClassName="YourHighlightClass"
                       searchWords={searchWords?.split(" ")}
                       autoEscape={true}
                       textToHighlight={post.title}
                     />
-                  </>
+                  </span>
                 </Link>
                 <div
                   className={cx(
@@ -163,11 +165,11 @@ function ListPost({
               <Loading></Loading>
             </div>
           }
-          endMessage={
-            <p style={{ textAlign: "center", margin: "2rem 0" }}>
-              <b>hết rồi...</b>
-            </p>
-          }
+          // endMessage={
+          //   <p style={{ textAlign: "center", margin: "2rem 0" }}>
+          //     <b>hết rồi...</b>
+          //   </p>
+          // }
         ></InfiniteScroll>
       )}
     </>

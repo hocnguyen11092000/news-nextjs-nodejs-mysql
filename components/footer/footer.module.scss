@@ -1,0 +1,20 @@
+.footer {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+
+  &__copyright {
+    font-size: 1.25rem;
+  }
+
+  &__info {
+    & span {
+      display: block;
+      margin: 0.875rem;
+    }
+  }
+}

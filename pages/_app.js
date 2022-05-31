@@ -6,6 +6,8 @@ import { DataProvider } from "../store/GlobalState";
 import "../styles/circle-loading.css";
 import "../styles/globals.css";
 import "../styles/cube-loading.css";
+import "../styles/comment-loading.css";
+import { SnackbarProvider } from "notistack";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -22,9 +24,11 @@ function MyApp({ Component, pageProps }) {
     <CubeLoading></CubeLoading>
   ) : (
     <DataProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SnackbarProvider>
     </DataProvider>
   );
 }

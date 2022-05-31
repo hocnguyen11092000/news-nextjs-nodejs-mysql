@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Controller } from "react-hook-form";
 import styles from "./input.module.scss";
 
-index.propTypes = {
+InputField.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
 
@@ -11,7 +11,7 @@ index.propTypes = {
   disable: PropTypes.bool,
 };
 
-function index(props) {
+function InputField(props) {
   const { form, name, label, disable, placeholder, type, id, borderbt } = props;
 
   const { control } = form;
@@ -68,4 +68,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default InputField;

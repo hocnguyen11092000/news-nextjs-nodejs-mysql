@@ -146,14 +146,14 @@ export default function Home({ posts, count, imageProps }) {
               form={form}
               name="keyword"
               id="keyword"
-              placeholder="nhập từ khóa ..."
+              placeholder="Search ..."
             ></InputField>
             <button
               style={{ minWidth: "80px" }}
               type="submit"
               className={cx("search-btn")}
             >
-              {loading ? "..." : " Tìm kiếm"}
+              {loading ? "..." : "search"}
             </button>
           </div>
         </form>

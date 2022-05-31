@@ -8,3 +8,24 @@
   margin-top: 1.2rem;
   cursor: pointer;
 }
+
+.reply-input {
+  position: relative;
+
+  &__reply-name {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(29, 191, 175, 0.3);
+    left: 0;
+
+    max-width: 95px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  & input {
+    padding-left: 100px;
+  }
+}

@@ -1,14 +1,27 @@
 .detail-post {
-  padding: 0 50px;
-
   &__comments {
     margin: 2rem 0;
 
     &-comment {
+      margin-bottom: 2rem;
+
       &__content {
-        background-color: rgb(240, 240, 240);
+        background-color: #f2f3f5;
         padding: 10px 12px;
         border-radius: 1rem;
+
+        &-watch-more {
+          margin: 1rem 0 0 3rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        &-username {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
 
         &-time {
           margin: 0.5rem 0 0 3rem;
@@ -21,6 +34,14 @@
           }
         }
       }
+    }
+  }
+
+  &__content {
+    &-comment-form {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
     }
   }
 }

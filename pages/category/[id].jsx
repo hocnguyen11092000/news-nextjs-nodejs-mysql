@@ -12,9 +12,9 @@ const Category = ({ posts, count, category, imageProps }) => {
   return (
     <div className="category">
       <Head>
-        <title>{posts.title}</title>
+        <title>{category.name}</title>
       </Head>
-      <div className="container">
+      <div className="category-container">
         <h2>{category.name}</h2>
         <ListPost
           imageProps={imageProps}
